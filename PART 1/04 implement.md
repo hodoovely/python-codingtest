@@ -56,4 +56,85 @@ for plan in plans:                            #for문 차례가 더 남았다면
 
 ### 예제 4-2 시각   
 #### 답안 예시(4-2.py)
+```python
+h = int(input())
 
+count = 0
+for i in range(h+1):
+    for j in range(60):
+        for k in range(60):
+            if '3' in str(i) + str(j) + str(k):
+                count += 1
+print(count)
+````
+
+<br/>
+<br/>
+
+## 왕실의 나이트   
+#### 내가 적어본 답안(틀림)
+```python
+move_types = [(2,1), (2,-1), (-2,1), (-2,-1), (1,2), (1,-2), (-1,2), (-1,-2)]
+
+a = input()
+x = ord(a[0])-96
+y = int(a[1])
+
+result = 0
+
+
+for move in move_types:
+    x += move[0]
+    y += move[1]
+    if 1 <= x <= 8 and 1 <= y <= 8:
+        result += 1
+    else:
+        continue
+
+print(result)
+````
+***x*** , ***y*** 값에 모든 ***move_types*** 들이 누적되어서 틀렸음.
+#### 내가 적어본 답안(맞음)
+```python
+move_types = [(2,1), (2,-1), (-2,1), (-2,-1), (1,2), (1,-2), (-1,2), (-1,-2)]
+
+a = input()
+x = ord(a[0])-96
+y = int(a[1])
+
+result = 0
+
+
+for move in move_types:
+    x += move[0]
+    y += move[1]
+    if 1 <= x <= 8 and 1 <= y <= 8:
+        result += 1
+        x = ord(a[0]) - 96
+        y = int(a[1])
+    else:
+        x = ord(a[0]) - 96
+        y = int(a[1])
+
+print(result)
+````
+답은 맞는데, 뭔가 코드 지저분..
+
+#### 답안 예시(4-3.py)
+```python
+input_data = input()
+row = int(input_data[1])
+column = int(ord(input_data[0])) - int(ord('a')) + 1   #이렇게 하면 아스키코드 안 외우고도 알파벳 숫자로 변환 가능하다!
+
+steps = [(2,1), (2,-1), (-2,1), (-2,-1), (1,2), (1,-2), (-1,2), (-1,-2)]
+
+result = 0
+for step in steps:
+    next_row = row + step[0]
+    next_column = column + step[1]
+    if next_row >= 1 and next_row <= 8 and next_column >= 1 and next_column <= 8:
+        result += 1
+
+print(result)
+```
+내 실패 답안이랑 뭐가 다른지 
