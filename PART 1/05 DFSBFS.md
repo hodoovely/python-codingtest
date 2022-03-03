@@ -128,3 +128,6 @@ print('재귀적으로 구현', factorial_recursive(5))
 
 ## 탐색 알고리즘 DFS/BFS
 
+### DFS
+***DFS*** 는 Depth-First Search, 깊이 우선 탐색이라고도 부르며, 그래프에서 깊은 부분을 우선적으로 탐색하는 알고리즘이다.
+DFS를 이해하기 위해서는 그래프의 기본 구조를 알아야한다.
